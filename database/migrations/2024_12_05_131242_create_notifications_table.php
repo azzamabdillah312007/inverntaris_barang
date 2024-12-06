@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('item_id');
+            $table->string('message');
+            $table->enum('status' , ['read' , 'unread'])->default('read');
             $table->timestamps();
         });
     }

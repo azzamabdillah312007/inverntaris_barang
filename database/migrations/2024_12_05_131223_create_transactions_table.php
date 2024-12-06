@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('item_id');
+            $table->integer('quantity');
+            $table->enum('type', ['addition', 'subtraction'])->default('addition');
+            $table->foreignId('user_id');
+            $table->string('notes');
             $table->timestamps();
         });
     }
