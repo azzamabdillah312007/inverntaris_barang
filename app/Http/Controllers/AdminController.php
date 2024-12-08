@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -11,8 +12,24 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $items = Item::all();
+        
+        $name = $items->pluck('name');
+        $price = $items->pluck('price');
+
+        return view('admin.dashboard' , compact('name', 'price'));
     }
+
+    public function showMenageStaff()
+    {
+        return view('admin.menage-staff');
+    }
+
+    public function showMenageitem()
+    {
+        return view('admin.menage-item');
+    }
+
 
     /**
      * Show the form for creating a new resource.
