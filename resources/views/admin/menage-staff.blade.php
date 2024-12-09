@@ -6,9 +6,11 @@
 
 @section('body')
 
-
+<div class="p-8">
+    <h1 class="text-4xl font-semibold text-gray-800">Table Staff</h1>
+    
     {{-- table staff --}}
-    <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+    <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md mt-5">
         <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
             <thead class="bg-gray-50">
                 <tr>
@@ -34,8 +36,7 @@
                         </div>
                     </th>
                     <td class="px-6 py-4">
-                        <span
-                            class="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold">
+                        <span class="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold">
                             jobs@sailboatui.com
                         </span>
                     </td>
@@ -74,8 +75,7 @@
                         </div>
                     </th>
                     <td class="px-6 py-4">
-                        <span
-                            class="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold">
+                        <span class="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold">
                             jobs@sailboatui.com
                         </span>
                     </td>
@@ -114,8 +114,7 @@
                         </div>
                     </th>
                     <td class="px-6 py-4">
-                        <span
-                            class="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold">
+                        <span class="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold">
                             jobs@sailboatui.com
                         </span>
                     </td>
@@ -154,8 +153,7 @@
                         </div>
                     </th>
                     <td class="px-6 py-4">
-                        <span
-                            class="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold">
+                        <span class="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold">
                             jobs@sailboatui.com
                         </span>
                     </td>
@@ -194,8 +192,7 @@
                         </div>
                     </th>
                     <td class="px-6 py-4">
-                        <span
-                            class="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold">
+                        <span class="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold">
                             jobs@sailboatui.com
                         </span>
                     </td>
@@ -234,8 +231,7 @@
                         </div>
                     </th>
                     <td class="px-6 py-4">
-                        <span
-                            class="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold">
+                        <span class="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold">
                             jobs@sailboatui.com
                         </span>
                     </td>
@@ -262,5 +258,7 @@
             </tbody>
         </table>
     </div>
+</div>
+
 
 @endsection

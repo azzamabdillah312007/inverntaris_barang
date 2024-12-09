@@ -30,6 +30,11 @@ class AdminController extends Controller
         return view('admin.menage-item');
     }
 
+    public function showTransaction()
+    {
+        return view('admin.transaction');
+    }
+
 
     /**
      * Show the form for creating a new resource.

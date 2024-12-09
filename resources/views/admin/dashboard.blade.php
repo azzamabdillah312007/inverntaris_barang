@@ -5,8 +5,12 @@
 
 
 @section('body')
-    <div class=" pl-3">
-        <canvas id="myChart"></canvas>
+
+    <div class="p-8">
+        <h1 class="text-4xl font-semibold text-gray-800">Stok Barang</h1>
+        <div class="mt-8">
+            <canvas id="myChart"></canvas>
+        </div>
     </div>
 
 
@@ -20,8 +24,7 @@
                 labels: {!! json_encode($name) !!},
                 datasets: [{
                     label: 'Harga Barang',
-                    data: {!! 
-                        json_encode($price) !!},
+                    data: {!! json_encode($price) !!},
                     borderWidth: 1
                 }]
             },
