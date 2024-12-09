@@ -12,12 +12,15 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $items = Item::all();
-        
-        $name = $items->pluck('name');
-        $price = $items->pluck('price');
+        $items = Item::with('stocks')->get();
 
-        return view('admin.dashboard' , compact('name', 'price'));
+        $names = $items->pluck('name'); 
+        
+        $quantities = $items->map(function ($item) {
+            return $item->stocks->sum('quantity');
+        });
+
+        return view('admin.dashboard', compact('names', 'quantities'));
     }
 
     public function showMenageStaff()

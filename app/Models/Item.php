@@ -18,4 +18,8 @@ class Item extends Model
         'image',
         'price'
     ];
+
+    public function stocks(){
+        return $this->hasMany(Stock::class);
+    }
 }

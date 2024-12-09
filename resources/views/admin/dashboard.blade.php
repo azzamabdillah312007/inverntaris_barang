@@ -21,10 +21,10 @@
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: {!! json_encode($name) !!},
+                labels: {!! json_encode($names) !!},
                 datasets: [{
-                    label: 'Harga Barang',
-                    data: {!! json_encode($price) !!},
+                    label: 'Stock Barang',
+                    data: {!! json_encode($quantities) !!},
                     borderWidth: 1
                 }]
             },
