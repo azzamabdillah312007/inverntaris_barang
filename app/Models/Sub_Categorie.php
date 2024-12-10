@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Item;
+use App\Models\Categorie;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -16,4 +18,12 @@ class Sub_Categorie extends Model
         'name',
         'description'
     ];
+
+    public function items(){
+        return $this->hasMany(Item::class);
+    }
+
+    public function category(){
+        return $this->belongsTo(Categorie::class);
+    }
 }

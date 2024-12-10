@@ -30,7 +30,9 @@ class AdminController extends Controller
 
     public function showMenageitem()
     {
-        return view('admin.menage-item');
+        $items = Item::with('subCategorie')->get();
+
+        return view('admin.menage-item' , compact('items'));
     }
 
     public function showTransaction()
