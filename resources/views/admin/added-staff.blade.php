@@ -1,6 +1,6 @@
 @extends('layout.admin')
 
-@section('judul', 'Admin|Menage-staff|Add-Staff')
+@section('judul', 'Admin|Add-Staff')
 @section('halaman', 'Tambah Staff ')
 
 

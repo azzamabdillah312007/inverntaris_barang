@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\User;
+use App\Models\Stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -27,7 +28,9 @@ class AdminController extends Controller
 
     public function showMenageStaff()
     {
-        return view('admin.menage-staff');
+        $staff = User::where('role','staff')->get();
+
+        return view('admin.menage-staff' , compact('staff'));
     }
 
     public function showMenageitem()
@@ -70,6 +73,41 @@ class AdminController extends Controller
 
         return redirect('/admin/menage-staff');
 
+    }
+
+
+    public function showDetailItem(Request $request , string $id){
+
+        $item = Item::where('id',$id)->get();
+        $stock = Item::with('stocks')->get();
+
+        $quantities = $item->map(function ($item) {
+            return $item->stocks->sum('quantity');
+        });
+
+        return view('admin.detail-item' , compact('item','quantities'));
+    }
+
+    public function addStock(Request $request, $itemId){
+        // dd($request);
+
+        $request->validate([
+            'quantity' => 'required|integer'
+        ]);
+
+        Stock::updateOrCreate(
+            [
+                'item_id' => $itemId,
+                'location_id' => '1',
+            ],
+
+            // data yang mau di buat atau di update harus di array yang kedua jadi di pisahkan
+            [
+                'quantity' => $request->quantity,
+            ]
+        );
+
+        return redirect("admin/menage-item/$itemId/detail");
     }
 
 
