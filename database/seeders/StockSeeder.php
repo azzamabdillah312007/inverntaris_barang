@@ -14,8 +14,8 @@ class StockSeeder extends Seeder
     public function run(): void
     {
         Stock::insert([
-            'item_id' => '5',
-            'quantity' => '300',
+            'item_id' => '4',
+            'quantity' => '270',
             'location_id' => '1'
         ]);
     }

@@ -15,4 +15,10 @@ Route::get('/admin/menage-staff' , [AdminController::class , 'showMenageStaff'])
 Route::get('/admin/menage-item' , [AdminController::class , 'showMenageItem'])->name('admin.menage-item');
 Route::get('/admin/transaction' , [AdminController::class , 'showTransaction'])->name('admin.transaction');
 
+// menage
+Route::get('/admin/menage-staff/added-staff' , [AdminController::class , 'showAddedStaff']);
+Route::post('/admin/menage-staff/added-staff' , [AdminController::class , 'addedStaff'])->name('added-staff');
+
+
+
 

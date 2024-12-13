@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -30,7 +32,7 @@ class AdminController extends Controller
 
     public function showMenageitem()
     {
-        $items = Item::with('subCategorie')->get();
+        $items = Item::with('stocks')->get();
 
         return view('admin.menage-item' , compact('items'));
     }
@@ -38,6 +40,36 @@ class AdminController extends Controller
     public function showTransaction()
     {
         return view('admin.transaction');
+    }
+
+    public function showAddedStaff()
+    {
+        return view('admin.added-staff');
+    }
+
+    public function addedStaff(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'password' => 'required|string|min:8'
+        ],[
+            'name.required' => 'field nama harus di isi',
+            'email.required' => 'field email harus di isi',
+            'password.required' => 'field password harus di isi'
+        ]);
+
+        $staff = 'staff';
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'role' => $staff,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect('/admin/menage-staff');
+
     }
 
 
