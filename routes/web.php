@@ -24,6 +24,16 @@ Route::post('/admin/menage-item/added-item' , [AdminController::class , 'addedIt
 Route::get('admin/menage-item/{id}/detail' , [AdminController::class, 'showDetailItem']);
 Route::post('admin/menage-item/{id}/detail' , [AdminController::class, 'addStock'])->name('add-stock');
 
+Route::get('/admin/menage-category' , [AdminController::class , 'showCategory']);
+Route::get('/admin/menage-sub_category' , [AdminController::class , 'showSubCategory']);
+Route::get('/admin/menage-category/added-category' , [AdminController::class , 'showAddCategory']);
+Route::post('/admin/menage-category/added-category' , [AdminController::class , 'addedCategory'])->name('added-category');
+Route::get('/admin/menage-sub_category/added-sub_category' , [AdminController::class , 'showAddSubCategory']);
+Route::post('/admin/menage-sub_category/added-sub_category' , [AdminController::class , 'addedSubCategory'])->name('added-sub_category');
+
+
+
+
 
 
 

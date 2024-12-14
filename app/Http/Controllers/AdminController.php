@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categorie;
 use App\Models\Item;
 use App\Models\User;
 use App\Models\Stock;
+use App\Models\Sub_Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -145,14 +147,75 @@ class AdminController extends Controller
         ]);
 
         return redirect('admin/menage-item');
-
-
-
-        // dd($request);
     }
 
 
+    public function showCategory(){
 
+        $categories = Categorie::all();
+
+        return view('admin.menage-category' , compact('categories'));
+    }
+
+    public function showSubCategory(){
+
+        $sub_category = Sub_Categorie::all();
+
+        return view('admin.menage-sub_category' , compact('sub_category'));
+    }
+
+    public function showAddCategory(){
+
+
+        return view('admin.added-category');
+    }
+
+    public function addedCategory(Request $request){
+
+        $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string',
+        ],[
+            'name.required' => 'nama kategori wajib di isi',
+            'description.required' => 'deskripsi kategori wajib di isi',
+        ]);
+
+        Categorie::create([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+
+        return redirect('admin/menage-category');
+    }
+
+    public function showAddSubCategory(){
+
+        $categoryForSelectInput = Categorie::all();
+
+        return view('admin.added-sub_category' , compact('categoryForSelectInput'));
+    }
+
+    public function addedSubCategory(Request $request){
+
+        $request->validate([
+            'name' => 'required|string',
+            'category_id' => 'required',
+            'description' => 'required|string',
+        ],[
+            'name.required' => 'nama kategori wajib di isi',
+            'category_id.required' => 'kategori wajib di isi',
+            'description.required' => 'deskripsi kategori wajib di isi',
+        ]);
+
+        Sub_Categorie::create([
+            'category_id' => $request->category_id,
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+
+        return redirect('admin/menage-sub_category');
+
+    }
 
     /**
      * Show the form for creating a new resource.
