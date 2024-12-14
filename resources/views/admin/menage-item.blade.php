@@ -16,6 +16,14 @@
 
     <div class="p-8">
         <h1 class="text-4xl font-semibold text-gray-800">Table Barang</h1>
+        <div class="flex justify-between mt-5">
+            <input type="text" id="first_name"
+                class=" w-[30%] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Cari berdasarkan nama barang" required />
+            <button type="button"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><a
+                    href="/admin/menage-item/added-item">Tambah Barang</a></button>
+        </div>
         {{-- table staff --}}
         <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md my-5">
             <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">

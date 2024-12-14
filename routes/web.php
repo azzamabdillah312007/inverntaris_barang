@@ -19,8 +19,11 @@ Route::get('/admin/transaction' , [AdminController::class , 'showTransaction'])-
 Route::get('/admin/menage-staff/added-staff' , [AdminController::class , 'showAddedStaff']);
 Route::post('/admin/menage-staff/added-staff' , [AdminController::class , 'addedStaff'])->name('added-staff');
 
+Route::get('/admin/menage-item/added-item' , [AdminController::class , 'showAddedItem']);
+Route::post('/admin/menage-item/added-item' , [AdminController::class , 'addedItem'])->name('added-item');
 Route::get('admin/menage-item/{id}/detail' , [AdminController::class, 'showDetailItem']);
 Route::post('admin/menage-item/{id}/detail' , [AdminController::class, 'addStock'])->name('add-stock');
+
 
 
 

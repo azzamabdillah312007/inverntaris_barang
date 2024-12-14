@@ -111,6 +111,49 @@ class AdminController extends Controller
     }
 
 
+    public function showAddedItem(){
+
+        return view('admin.added-item');
+    }
+
+    public function addedItem(Request $request){
+
+        $request->validate([
+            'name' => 'required|string',
+            'price' => 'required|integer',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2098',
+            'description' => 'required|string',
+        ],[
+            'name.required' => 'nama barang wajib di isi',
+            'price.required' => 'harga barang wajib di isi',
+            'image.required' => 'gambar barang wajib di isi',
+            'image.image' => 'File yang harus di unggah harus berupa gambar',
+            'image.mimes' => 'Format gambar harus jpeg , png , jpg',
+            'image.max' => 'Ukuran gambar tidak boleh lebih dari 2MB',
+            'description.required' => 'deskripsi barang wajib di isi',
+        ]);
+
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
+
+        Item::create([
+            'sub_category_id' => '1',
+            'name' => $request->name,
+            'description' => $request->description,
+            'image' => $imageName,
+            'price' => $request->price,
+        ]);
+
+        return redirect('admin/menage-item');
+
+
+
+        // dd($request);
+    }
+
+
+
+
     /**
      * Show the form for creating a new resource.
      */

@@ -41,7 +41,7 @@
             <div
                 class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
                 <i class="bi bi-bookmark-fill"></i>
-                <a href="/admin/menage-item" class="text-[15px] ml-4 text-gray-200 font-bold">Pengelola barang</a>
+                <a href="/admin/menage-item" class="text-[15px] ml-4 text-gray-200 font-bold">Pengelola item</a>
             </div>
             <div
                 class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
@@ -49,33 +49,14 @@
                 <a href="/admin/transaction" class="text-[15px] ml-4 text-gray-200 font-bold">Transaksi barang</a>
             </div>
             <div class="my-4 bg-gray-600 h-[1px]"></div>
-            <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
-                onclick="dropdown()">
-                <i class="bi bi-chat-left-text-fill"></i>
-                <div class="flex justify-between w-full items-center">
-                    <span class="text-[15px] ml-4 text-gray-200 font-bold">Chatbox</span>
-                    <span class="text-sm rotate-180" id="arrow">
-                        <i class="bi bi-chevron-down"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold" id="submenu">
-                <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    Social
-                </h1>
-                <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    Personal
-                </h1>
-                <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    Friends
-                </h1>
-            </div>
             <div
                 class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
                 <i class="bi bi-box-arrow-in-right"></i>
                 <span class="text-[15px] ml-4 text-gray-200 font-bold">Logout</span>
             </div>
         </div>
+
+        
 
         {{-- main content --}}
         <div class="main-content ml-[300px]">
@@ -108,8 +89,6 @@
         </div>
     </div>
 
-
-    {{-- @yield('body') --}}
 
 </body>
 
