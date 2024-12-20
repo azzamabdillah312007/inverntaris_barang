@@ -62,11 +62,6 @@
             <div
                 class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
                 <i class="bi bi-bookmark-fill"></i>
-                <a href="/admin/menage-stock" class="text-[15px] ml-4 text-gray-200 font-bold">Stock barang</a>
-            </div>
-            <div
-                class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
-                <i class="bi bi-bookmark-fill"></i>
                 <a href="/admin/transaction" class="text-[15px] ml-4 text-gray-200 font-bold">Transaksi barang</a>
             </div>
             <div class="my-4 bg-gray-600 h-[1px]"></div>

@@ -18,7 +18,7 @@
                 <div>
                     <label class="text-gray-800 font-semibold block my-3 text-md" for="name">Nama</label>
                     <input class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="text" name="name"
-                        id="name" placeholder="name" />
+                        id="name" placeholder="nama barang" />
                     @error('name')
                         <span class="text-sm text-red-600">{{ $message }}</span>
                     @enderror
@@ -26,7 +26,7 @@
                 <div>
                     <label class="text-gray-800 font-semibold block my-3 text-md" for="price">Harga</label>
                     <input class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="number" name="price"
-                        id="price" placeholder="harga" />
+                        id="price" placeholder="harga barang" />
                     @error('price')
                         <span class="text-sm text-red-600">{{ $message }}</span>
                     @enderror
@@ -37,6 +37,14 @@
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         name="image" id="file_input" type="file">
                     @error('image')
+                        <span class="text-sm text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div>
+                    <label class="text-gray-800 font-semibold block my-3 text-md" for="stock">Stok</label>
+                    <input class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="number" name="stock"
+                        id="stock" placeholder="stok barang" />
+                    @error('stock')
                         <span class="text-sm text-red-600">{{ $message }}</span>
                     @enderror
                 </div>

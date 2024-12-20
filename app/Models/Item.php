@@ -18,7 +18,8 @@ class Item extends Model
         'name',
         'description',
         'image',
-        'price'
+        'price',
+        'stock'
     ];
 
     public function stocks(){

@@ -39,5 +39,3 @@ Route::post('/admin/menage-location/added-location' , [AdminController::class , 
 
 
 
-
-
