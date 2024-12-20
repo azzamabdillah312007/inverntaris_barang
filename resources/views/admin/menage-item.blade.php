@@ -6,12 +6,12 @@
 
 @section('body')
 
-    <div class="p-8">
+    {{-- <div class="p-8">
         <h1 class="text-4xl font-semibold text-gray-800">Statistik Pengeluaran</h1>
         <div>
             <canvas id="myChart"></canvas>
         </div>
-    </div>
+    </div> --}}
 
 
     <div class="p-8">

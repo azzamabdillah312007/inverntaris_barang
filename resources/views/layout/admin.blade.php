@@ -46,12 +46,23 @@
             <div
                 class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
                 <i class="bi bi-bookmark-fill"></i>
-                <a href="/admin/menage-sub_category" class="text-[15px] ml-4 text-gray-200 font-bold">sub kategori barang</a>
+                <a href="/admin/menage-sub_category" class="text-[15px] ml-4 text-gray-200 font-bold">sub kategori
+                    barang</a>
             </div>
             <div
                 class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
                 <i class="bi bi-bookmark-fill"></i>
                 <a href="/admin/menage-item" class="text-[15px] ml-4 text-gray-200 font-bold">Pengelola item</a>
+            </div>
+            <div
+                class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                <i class="bi bi-bookmark-fill"></i>
+                <a href="/admin/menage-location" class="text-[15px] ml-4 text-gray-200 font-bold">Lokasi penyimpanan</a>
+            </div>
+            <div
+                class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                <i class="bi bi-bookmark-fill"></i>
+                <a href="/admin/menage-stock" class="text-[15px] ml-4 text-gray-200 font-bold">Stock barang</a>
             </div>
             <div
                 class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
