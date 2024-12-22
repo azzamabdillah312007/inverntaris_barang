@@ -8,6 +8,7 @@ use App\Models\Location;
 use App\Models\User;
 use App\Models\Stock;
 use App\Models\Sub_Categorie;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -206,7 +207,7 @@ class AdminController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'category_id' => 'required',
+            'category_id' => 'required|integer',
             'description' => 'required|string',
         ], [
             'name.required' => 'nama kategori wajib di isi',
@@ -255,7 +256,9 @@ class AdminController extends Controller
 
     public function showTransaction()
     {
-        return view('admin.menage-transaction');
+        $transactions = Transaction::all();
+
+        return view('admin.menage-transaction' , compact('transactions'));
     }
     
     public function showAddTransaction(){
@@ -266,6 +269,42 @@ class AdminController extends Controller
     }
 
     public function addedTransaction(Request $request){
-        dd($request);
+        $request->validate([
+            'item_id' => 'required|string',
+            'quantity' => 'required|integer',
+            'status' => 'required|string',
+            'notes' => 'required|string',
+        ], [
+            'item_id.required' => 'mohon pilih item',
+            'quantity.required' => 'banyak barang wajib di isi',
+            'status.required' => 'status wajib di isi',
+            'notes.required' => 'catatan kategori wajib di isi',
+        ]);
+
+        $itemId = $request->item_id;
+        $quantity = $request->quantity;
+        $status = $request->status;
+
+        $item = Item::where('id', $itemId)->first();
+
+        if ($status == 'addition') {
+            $item->stock += $quantity;
+        } else {
+            $item->stock -= $quantity;
+        }
+        
+        $item->update([
+            'stock' => $item->stock,
+        ]);
+
+        Transaction::create([
+            'item_id' => $request->item_id,
+            'quantity' => $request->quantity,
+            'type' => $request->status,
+            'user_id' =>'1',
+            'notes' => $request->notes
+        ]);
+
+        return redirect('admin/menage-transaction');
     }
 }
