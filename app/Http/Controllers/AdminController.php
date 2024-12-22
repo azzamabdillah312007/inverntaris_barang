@@ -43,11 +43,6 @@ class AdminController extends Controller
         return view('admin.menage-item', compact('items'));
     }
 
-    public function showTransaction()
-    {
-        return view('admin.transaction');
-    }
-
     public function showAddedStaff()
     {
         return view('admin.added-staff');
@@ -232,7 +227,7 @@ class AdminController extends Controller
     {
         $location = Location::all();
 
-        return view('admin.menage-location' , compact('location'));
+        return view('admin.menage-location', compact('location'));
     }
 
     public function showAddLocation()
@@ -258,4 +253,19 @@ class AdminController extends Controller
         return redirect('admin/menage-location');
     }
 
+    public function showTransaction()
+    {
+        return view('admin.menage-transaction');
+    }
+    
+    public function showAddTransaction(){
+
+        $selectItemForInput = Item::all();
+
+        return view('admin.added-transaction' , compact('selectItemForInput'));
+    }
+
+    public function addedTransaction(Request $request){
+        dd($request);
+    }
 }

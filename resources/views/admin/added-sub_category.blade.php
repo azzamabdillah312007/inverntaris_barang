@@ -8,12 +8,9 @@
 
     <div class="p-8">
         <h1 class="text-4xl font-semibold text-gray-800">Tambah Sub Kategori</h1>
-
-        <!-- component -->
-        <!-- component -->
-        <!-- Create by joker banny -->
         <div class="w-full mt-8">
-            <form action="" method="POST" class="bg-white rounded-lg shadow-lg w-full border p-8">
+            <form action="{{ route('added-sub_category') }}" method="POST"
+                class="bg-white rounded-lg shadow-lg w-full border p-8">
                 @csrf
                 <div>
                     <label class="text-gray-800 font-semibold block my-3 text-md" for="name">Nama</label>

@@ -35,6 +35,10 @@ Route::get('/admin/menage-location' , [AdminController::class , 'showlocation'])
 Route::get('/admin/menage-location/added-location' , [AdminController::class , 'showAddLocation']);
 Route::post('/admin/menage-location/added-location' , [AdminController::class , 'addedLocation'])->name('added-location');
 
+Route::get('/admin/menage-transaction' , [AdminController::class , 'showTransaction']);
+Route::get('/admin/menage-transaction/added-transaction' , [AdminController::class , 'showAddTransaction']);
+Route::post('/admin/menage-transaction/added-transaction' , [AdminController::class , 'addedTransaction'])->name('added-transaction');
+
 
 
 
