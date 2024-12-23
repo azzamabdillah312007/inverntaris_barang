@@ -17,8 +17,13 @@ class AdminSeeder extends Seeder
         User::insert([
             'name' => 'Azzam',
             'email' => 'azzam.rpl22@gmail.com',
-            'password' => Hash::make('endomitomaminaminokubosuzuki123'), // Password default
-            'role' => 'admin', // Pastikan role admin
+            'password' => Hash::make('endomitomaminaminokubosuzuki123'),
+            'role' => 'admin', 
+
+            'name' => 'Risna Fania',
+            'email' => 'risna003@gmail.com',
+            'password' => Hash::make('sayang123456789'),
+            'role' => 'staff', 
         ]);
     }
 }
