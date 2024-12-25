@@ -25,6 +25,7 @@
                         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Deskripsi</th>
                         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Stok</th>
                         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Harga</th>
+                        <th scope="col" class="px-6 py-4 font-medium text-gray-900">Sub kategori</th>
                         <th scope="col" class="px-6 py-4 font-medium text-gray-900"></th>
                     </tr>
                 </thead>
@@ -47,6 +48,7 @@
                                 {{ $item->stock }}
                             </td>
                             <td class="px-6 py-4">{{ $item->price }}</td>
+                            <td class="px-6 py-4">{{ $item->subCategorie->name ?? 'Tidak ada sub categori' }}</td>
                             <td class="px-6 py-4">
                                 <div class="flex justify-end gap-4">
                                     <a x-data="{ tooltip: 'Delete' }" href="#">

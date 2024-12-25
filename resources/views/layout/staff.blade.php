@@ -31,33 +31,23 @@
             <div
                 class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
                 <i class="bi bi-house-door-fill"></i>
-                <a href="/admin/dashboard" class="text-[15px] ml-4 text-gray-200 font-bold">Dashboard</a>
+                <a href="/staff/dashboard" class="text-[15px] ml-4 text-gray-200 font-bold">Dashboard</a>
             </div>
             <div
                 class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
                 <i class="bi bi-bookmark-fill"></i>
-                <a href="/admin/menage-staff" class="text-[15px] ml-4 text-gray-200 font-bold">Pengelola staff</a>
+                <a href="/staff/menage-item" class="text-[15px] ml-4 text-gray-200 font-bold">Pengelola item</a>
             </div>
             <div
                 class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
                 <i class="bi bi-bookmark-fill"></i>
-                <a href="/admin/menage-item" class="text-[15px] ml-4 text-gray-200 font-bold">Pengelola item</a>
-            </div>
-            <div
-                class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
-                <i class="bi bi-bookmark-fill"></i>
-                <a href="/admin/menage-location" class="text-[15px] ml-4 text-gray-200 font-bold">Lokasi penyimpanan</a>
-            </div>
-            <div
-                class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
-                <i class="bi bi-bookmark-fill"></i>
-                <a href="/admin/transaction" class="text-[15px] ml-4 text-gray-200 font-bold">Transaksi barang</a>
+                <a href="/staff/transaction" class="text-[15px] ml-4 text-gray-200 font-bold">Transaksi barang</a>
             </div>
             <div class="my-4 bg-gray-600 h-[1px]"></div>
             <div
                 class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
                 <i class="bi bi-box-arrow-in-right"></i>
-                <span class="text-[15px] ml-4 text-gray-200 font-bold">Logout</span>
+                <a href="/logout" class="text-[15px] ml-4 text-gray-200 font-bold">Logout</a>
             </div>
         </div>
 

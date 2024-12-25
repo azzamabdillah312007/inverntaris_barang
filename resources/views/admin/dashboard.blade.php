@@ -19,12 +19,12 @@
         const ctx = document.getElementById('myChart');
 
         new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
-                labels: {!! json_encode($names) !!},
+                labels: {!! json_encode($items->pluck('name')) !!},
                 datasets: [{
                     label: 'Stock Barang',
-                    data: {!! json_encode($quantities) !!},
+                    data: {!! json_encode($items->pluck('stock')) !!},
                     borderWidth: 1
                 }]
             },

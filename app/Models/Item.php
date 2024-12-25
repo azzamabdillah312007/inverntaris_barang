@@ -22,11 +22,13 @@ class Item extends Model
         'stock'
     ];
 
-    public function stocks(){
+    public function stocks()
+    {
         return $this->hasMany(Stock::class);
     }
 
-    public function subCategorie(){
-        return $this->belongsTo(Sub_Categorie::class);
+    public function subCategorie()
+    {
+        return $this->belongsTo(Sub_Categorie::class,  'sub_category_id', 'id');
     }
 }

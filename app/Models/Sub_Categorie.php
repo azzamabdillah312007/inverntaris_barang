@@ -19,11 +19,13 @@ class Sub_Categorie extends Model
         'description'
     ];
 
-    public function items(){
+    public function items()
+    {
         return $this->hasMany(Item::class);
     }
 
-    public function category(){
-        return $this->belongsTo(Categorie::class);
+    public function category()
+    {
+        return $this->belongsTo(Categorie::class, 'category_id', 'id');
     }
 }

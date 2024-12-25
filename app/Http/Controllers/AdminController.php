@@ -19,15 +19,17 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $items = Item::with('stocks')->get();
+        // $items = Item::with('stocks')->get();
 
-        $names = $items->pluck('name');
+        // $names = $items->pluck('name');
 
-        $quantities = $items->map(function ($item) {
-            return $item->stocks->sum('quantity');
-        });
+        // $quantities = $items->map(function ($item) {
+        //     return $item->stocks->sum('quantity');
+        // });
 
-        return view('admin.dashboard', compact('names', 'quantities'));
+        $items = Item::all();
+
+        return view('admin.dashboard', compact('items'));
     }
 
     public function showMenageStaff()
@@ -39,8 +41,8 @@ class AdminController extends Controller
 
     public function showMenageitem()
     {
-        $items = Item::with('stocks')->get();
-
+        $items = Item::with('subCategorie')->get();
+        
         return view('admin.menage-item', compact('items'));
     }
 
@@ -72,7 +74,6 @@ class AdminController extends Controller
 
         return redirect('/admin/menage-staff');
     }
-
 
     public function showDetailItem(Request $request, string $id)
     {
@@ -113,8 +114,9 @@ class AdminController extends Controller
 
     public function showAddedItem()
     {
+        $subcategories = Sub_Categorie::all();
 
-        return view('admin.added-item');
+        return view('admin.added-item' , compact('subcategories'));
     }
 
     public function addedItem(Request $request)
@@ -126,6 +128,7 @@ class AdminController extends Controller
             'stock' => 'required|integer',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2098',
             'description' => 'required|string',
+            'sub_category_id' => 'required|string'
         ], [
             'name.required' => 'nama barang wajib di isi',
             'price.required' => 'harga barang wajib di isi',
@@ -135,13 +138,14 @@ class AdminController extends Controller
             'image.mimes' => 'Format gambar harus jpeg , png , jpg',
             'image.max' => 'Ukuran gambar tidak boleh lebih dari 2MB',
             'description.required' => 'deskripsi barang wajib di isi',
+            'sub_category_id' => 'sub kategori barang wajib di pilih'
         ]);
 
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('images'), $imageName);
 
         Item::create([
-            'sub_category_id' => '1',
+            'sub_category_id' => $request->sub_category_id,
             'name' => $request->name,
             'description' => $request->description,
             'image' => $imageName,
@@ -164,15 +168,13 @@ class AdminController extends Controller
     public function showSubCategory()
     {
 
-        $sub_category = Sub_Categorie::all();
+        $sub_category = Sub_Categorie::with('category')->get();
 
         return view('admin.menage-sub_category', compact('sub_category'));
     }
 
     public function showAddCategory()
     {
-
-
         return view('admin.added-category');
     }
 
