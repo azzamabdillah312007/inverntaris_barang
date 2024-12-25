@@ -15,4 +15,8 @@ class Location extends Model
         'name',
         'description'
     ];
+
+    public function item(){
+        return $this->hasMany(Item::class);
+    }
 }

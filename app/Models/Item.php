@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Stock;
+use App\Models\Location;
 use App\Models\Sub_Categorie;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,6 +15,7 @@ class Item extends Model
 
     protected $fillable = [
         'sub_category_id',
+        'location_id',
         'name',
         'description',
         'image',
@@ -22,13 +23,13 @@ class Item extends Model
         'stock'
     ];
 
-    public function stocks()
-    {
-        return $this->hasMany(Stock::class);
-    }
 
     public function subCategorie()
     {
         return $this->belongsTo(Sub_Categorie::class,  'sub_category_id', 'id');
+    }
+
+    public function location(){
+        return $this->belongsTo(Location::class);
     }
 }

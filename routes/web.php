@@ -44,6 +44,8 @@ Route::middleware('auth')->group(function(){
 
     // Staff
     Route::get('/staff/dashboard' , [StaffController::class , 'index'])->name('staff.dashboard');
+    Route::get('/staff/menage-location' , [StaffController::class , 'showMenageLocation'])->name('staff.location');
+
 });
 
 

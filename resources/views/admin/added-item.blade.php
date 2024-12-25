@@ -57,10 +57,10 @@
                     @enderror
                 </div>
                 <div>
-                    <label class="text-gray-800 font-semibold block mt-5 text-md" for="sub_category_id">kategori</label>
+                    <label class="text-gray-800 font-semibold block mt-5 text-md" for="sub_category_id">sub kategori</label>
                     <select id="sub_category_id" name="sub_category_id"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected>Pilih kategori</option>
+                        <option selected>Pilih sub kategori</option>
                         @foreach ($subcategories as $subcategory)
                             <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
                         @endforeach

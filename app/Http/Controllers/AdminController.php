@@ -79,37 +79,10 @@ class AdminController extends Controller
     {
 
         $item = Item::where('id', $id)->get();
-        $stock = Item::with('stocks')->get();
 
-        $quantities = $item->map(function ($item) {
-            return $item->stocks->sum('quantity');
-        });
-
-        return view('admin.detail-item', compact('item', 'quantities'));
+        return view('admin.detail-item', compact('item'));
     }
 
-    public function addStock(Request $request, $itemId)
-    {
-        // dd($request);
-
-        $request->validate([
-            'quantity' => 'required|integer'
-        ]);
-
-        Stock::updateOrCreate(
-            [
-                'item_id' => $itemId,
-                'location_id' => '1',
-            ],
-
-            // data yang mau di buat atau di update harus di array yang kedua jadi di pisahkan
-            [
-                'quantity' => $request->quantity,
-            ]
-        );
-
-        return redirect("admin/menage-item/$itemId/detail");
-    }
 
 
     public function showAddedItem()
