@@ -13,16 +13,18 @@
         </div>
     </div>
 
+
+    {{-- script chart,js --}}
     <script>
         const ctx = document.getElementById('myChart');
 
         new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: {!! json_encode($items->pluck('name')) !!},
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
+                    label: 'Stock Barang',
+                    data: {!! json_encode($items->pluck('stock')) !!},
                     borderWidth: 1
                 }]
             },
@@ -35,5 +37,6 @@
             }
         });
     </script>
+
 
 @endsection

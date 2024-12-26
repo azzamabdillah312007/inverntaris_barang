@@ -15,7 +15,9 @@ class StaffController extends Controller
      */
     public function index()
     {
-        return view('staff.dashboard');
+        $items = Item::all();
+
+        return view('staff.dashboard', compact('items'));
     }
 
     public function showMenageitem()

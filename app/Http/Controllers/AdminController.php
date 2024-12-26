@@ -20,14 +20,6 @@ class AdminController extends Controller
      */
     public function index()
     {
-        // $items = Item::with('stocks')->get();
-
-        // $names = $items->pluck('name');
-
-        // $quantities = $items->map(function ($item) {
-        //     return $item->stocks->sum('quantity');
-        // });
-
         $items = Item::all();
 
         return view('admin.dashboard', compact('items'));
@@ -86,49 +78,49 @@ class AdminController extends Controller
 
 
 
-public function showAddedItem()
-{
-    $subcategories = Sub_Categorie::all();
+    public function showAddedItem()
+    {
+        $subcategories = Sub_Categorie::all();
 
-    return view('admin.added-item' , compact('subcategories'));
-}
+        return view('admin.added-item' , compact('subcategories'));
+    }
 
-public function addedItem(Request $request)
-{
+    public function addedItem(Request $request)
+    {
 
-    $request->validate([
-        'name' => 'required|string',
-        'price' => 'required|integer',
-        'stock' => 'required|integer',
-        'image' => 'required|image|mimes:jpeg,png,jpg|max:2098',
-        'description' => 'required|string',
-        'sub_category_id' => 'required|string'
-    ], [
-        'name.required' => 'nama barang wajib di isi',
-        'price.required' => 'harga barang wajib di isi',
-        'stock.required' => 'stok barang wajib di isi',
-        'image.required' => 'gambar barang wajib di isi',
-        'image.image' => 'File yang harus di unggah harus berupa gambar',
-        'image.mimes' => 'Format gambar harus jpeg , png , jpg',
-        'image.max' => 'Ukuran gambar tidak boleh lebih dari 2MB',
-        'description.required' => 'deskripsi barang wajib di isi',
-        'sub_category_id' => 'sub kategori barang wajib di pilih'
-    ]);
+        $request->validate([
+            'name' => 'required|string',
+            'price' => 'required|integer',
+            'stock' => 'required|integer',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2098',
+            'description' => 'required|string',
+            'sub_category_id' => 'required|string'
+        ], [
+            'name.required' => 'nama barang wajib di isi',
+            'price.required' => 'harga barang wajib di isi',
+            'stock.required' => 'stok barang wajib di isi',
+            'image.required' => 'gambar barang wajib di isi',
+            'image.image' => 'File yang harus di unggah harus berupa gambar',
+            'image.mimes' => 'Format gambar harus jpeg , png , jpg',
+            'image.max' => 'Ukuran gambar tidak boleh lebih dari 2MB',
+            'description.required' => 'deskripsi barang wajib di isi',
+            'sub_category_id' => 'sub kategori barang wajib di pilih'
+        ]);
 
-    $imageName = time() . '.' . $request->image->extension();
-    $request->image->move(public_path('images'), $imageName);
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
 
-    Item::create([
-        'sub_category_id' => $request->sub_category_id,
-        'name' => $request->name,
-        'description' => $request->description,
-        'image' => $imageName,
-        'price' => $request->price,
-        'stock' => $request->stock,
-    ]);
+        Item::create([
+            'sub_category_id' => $request->sub_category_id,
+            'name' => $request->name,
+            'description' => $request->description,
+            'image' => $imageName,
+            'price' => $request->price,
+            'stock' => $request->stock,
+        ]);
 
-    return redirect('admin/menage-item');
-}
+        return redirect('admin/menage-item');
+    }
 
 
     public function showCategory()
