@@ -44,6 +44,9 @@ Route::middleware('auth')->group(function(){
 
     // Staff
     Route::get('/staff/dashboard' , [StaffController::class , 'index'])->name('staff.dashboard');
+    Route::get('/staff/menage-item' , [StaffController::class , 'showMenageItem']);
+    Route::get('/staff/menage-item/added-item' , [StaffController::class , 'showAddedItem']);
+    Route::post('/staff/menage-item/added-item' , [StaffController::class , 'addedItem'])->name('staff.added-item');
     Route::get('/staff/menage-location' , [StaffController::class , 'showMenageLocation'])->name('staff.location');
     Route::get('/staff/menage-location/added-item-in-location' , [StaffController::class , 'showAddedItemInLocation']);
     Route::post('/staff/menage-location/added-item-in-location' , [StaffController::class , 'addedItemInLocation'])->name('staff.added-item-in-location');

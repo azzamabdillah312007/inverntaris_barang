@@ -41,7 +41,7 @@
                             </th>
                             <td class="px-6 py-4">
                                 <span class="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold">
-                                    {{ $item->description }}
+                                    {{ Str::limit($item->description, 40) }}
                                 </span>
                             </td>
                             <td class="px-6 py-4">
