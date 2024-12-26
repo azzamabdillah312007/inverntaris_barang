@@ -15,10 +15,10 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         User::insert([
-            'name' => 'Azzam',
-            'email' => 'azzam.rpl22@gmail.com',
-            'password' => Hash::make('endomitomaminaminokubosuzuki123'),
-            'role' => 'admin', 
+            // 'name' => 'Azzam',
+            // 'email' => 'azzam.rpl22@gmail.com',
+            // 'password' => Hash::make('endomitomaminaminokubosuzuki123'),
+            // 'role' => 'admin', 
 
             'name' => 'Risna Fania',
             'email' => 'risna003@gmail.com',

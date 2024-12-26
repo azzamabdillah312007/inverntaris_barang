@@ -16,18 +16,18 @@
             <form action="{{ route('added-location') }}" method="POST" class="bg-white rounded-lg shadow-lg w-full border p-8">
                 @csrf
                 <div>
-                    <label class="text-gray-800 font-semibold block my-3 text-md" for="name">Nama Lokasi</label>
+                    <label class="text-gray-800 font-semibold block my-3 text-md" for="name">Nama lokasi</label>
                     <input class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="text" name="name"
-                        id="name" placeholder="misal (gudang a)" />
+                        id="name" placeholder="misal (gudang depan)" />
                     @error('name')
                         <span class="text-sm text-red-600">{{ $message }}</span>
                     @enderror
                 </div>
                 <div>
-                    <label class="text-gray-800 font-semibold block my-3 text-md" for="description">Deskripsi</label>
-                    <textarea class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="text" name="description"
-                        id="description" placeholder="deskripsi kategori"></textarea>
-                    @error('description')
+                    <label class="text-gray-800 font-semibold block my-3 text-md" for="location">Detail lokasi</label>
+                    <textarea class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="text" name="location"
+                        id="location" placeholder="misal (rak 1)"></textarea>
+                    @error('location')
                         <span class="text-sm text-red-600">{{ $message }}</span>
                     @enderror
                 </div>

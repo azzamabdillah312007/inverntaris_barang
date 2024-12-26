@@ -215,15 +215,15 @@ class AdminController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'description' => 'required|string',
+            'location' => 'required|string',
         ], [
             'name.required' => 'nama lokasi wajib di isi',
-            'description.required' => 'deskripsi lokasi wajib di isi',
+            'location.required' => 'detail lokasi wajib di isi',
         ]);
 
         Location::create([
             'name' => $request->name,
-            'description' => $request->description,
+            'location' => $request->location,
         ]);
 
         return redirect('admin/menage-location');
